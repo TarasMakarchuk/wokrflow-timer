@@ -5,23 +5,29 @@
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
+    "android:dev": "expo start -c --android",
     "ios": "expo start --ios",
+    "ios:dev": "expo start -c --ios",
     "web": "expo start --web"
   },
   "dependencies": {
+    "@expo/webpack-config": "^18.1.2",
     "add": "^2.0.6",
-    "expo": "^49.0.0",
+    "expo": "^49.0.7",
     "expo-status-bar": "~1.6.0",
     "nativewind": "^2.0.11",
     "or": "^0.2.0",
     "react": "18.2.0",
-    "react-native": "0.72.3",
+    "react-dom": "^18.2.0",
+    "react-native": "^0.72.3",
+    "react-native-web": "~0.19.6",
     "yarn": "^1.22.19"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
     "@trivago/prettier-plugin-sort-imports": "^4.2.0",
     "@types/react": "~18.2.14",
+    "@types/react-native": "^0.72.2",
     "eslint-plugin-prettier": "^5.0.0",
     "prettier": "2.8.8",
     "tailwindcss": "3.3.2",
