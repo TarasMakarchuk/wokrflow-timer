@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from 'react';
-import { Text, View } from 'react-native';
 import { useAuth } from '@/hooks/useAuth';
 import { useNavigationContainerRef } from '@react-navigation/native';
+import { BottomMenu } from '@/components/ui/layout/bottom-menu/BottomMenu';
 
 export const Navigation: FC = () => {
   const { user } = useAuth();
@@ -15,13 +15,15 @@ export const Navigation: FC = () => {
     const listener = navRef.addListener('state', () => setCurrentRoute(navRef.getCurrentRoute()?.name));
 
     return () => {
-      navRef.removeListener('state', () => listener);
-    }
+      navRef.removeListener('state', listener);
+    };
   }, []);
 
   return (
-    <View>
-      <Text>Navigation</Text>
-    </View>
+    <>
+      {user && currentRoute &&
+        <BottomMenu nav={navRef.navigate} currentRoute={currentRoute} />
+      }
+    </>
   );
 };
