@@ -1,7 +1,8 @@
 import { FC, useEffect, useState } from 'react';
 import { useAuth } from '@/hooks/useAuth';
-import { useNavigationContainerRef } from '@react-navigation/native';
+import { NavigationContainer, useNavigationContainerRef } from '@react-navigation/native';
 import { BottomMenu } from '@/components/ui/layout/bottom-menu/BottomMenu';
+import { PrivateNavigation } from '@/navigation/PrivateNavigation';
 
 export const Navigation: FC = () => {
   const { user } = useAuth();
@@ -21,6 +22,9 @@ export const Navigation: FC = () => {
 
   return (
     <>
+      <NavigationContainer ref={navRef} className='bg-blue-500'>
+        <PrivateNavigation />
+      </NavigationContainer>
       {user && currentRoute &&
         <BottomMenu nav={navRef.navigate} currentRoute={currentRoute} />
       }
