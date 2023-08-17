@@ -4,6 +4,16 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Navigation } from '@/navigation/Navigation';
 import { StatusBar } from 'react-native';
 
+/**
+TODO:
+ [] - Customize flow, break, session count
+ [] - reset
+ [] - Day name
+ [] - Play/Pause
+ [] - Skip flow
+ [] - Week/mount statistics ???
+*/
+
 const queryClient = new QueryClient();
 
 export default function () {
@@ -14,7 +24,7 @@ export default function () {
           <Navigation />
         </SafeAreaProvider>
       </AuthProvider>
-      <StatusBar style='light' />
+      <StatusBar style="light" />
     </QueryClientProvider>
   );
 }

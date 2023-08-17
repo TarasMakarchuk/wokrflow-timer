@@ -3,15 +3,15 @@ import { IMenuItem } from './menu.interface';
 export const menuDta: IMenuItem[] = [
   {
     path: 'Home',
-    iconName: 'clockcircleo',
+    iconName: 'clock',
   },
   {
     path: 'Settings',
-    iconName: 'setting',
+    iconName: 'sliders',
   },
   {
     path: 'Statistics',
-    iconName: 'barschart',
+    iconName: 'bar-chart-2',
   },
   {
     path: 'Profile',
