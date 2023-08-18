@@ -6,12 +6,18 @@ import { StatusBar } from 'react-native';
 
 /**
 TODO:
+ [] - Auth page + form
  [] - Customize flow, break, session count
  [] - reset
  [] - Day name
  [] - Play/Pause
  [] - Skip flow
  [] - Week/mount statistics ???
+
+ [] - Timer
+ [] - Settings + Profile
+ [] - Statistics
+ [] - Animation
 */
 
 const queryClient = new QueryClient();
