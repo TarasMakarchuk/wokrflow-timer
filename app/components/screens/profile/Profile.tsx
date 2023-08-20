@@ -1,10 +1,9 @@
 import { FC } from 'react';
-import { Text, View } from 'react-native';
+import { Layout } from '@/components/ui/layout/Layout';
 
 export const Profile: FC = () => {
   return (
-    <View>
-      <Text>Profile</Text>
-    </View>
+    <Layout title='Profile'>
+    </Layout>
   );
 };
