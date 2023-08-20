@@ -1,11 +1,36 @@
-import { StatusBar } from 'expo-status-bar';
-import { Text, View } from 'react-native';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { AuthProvider } from '@/providers/AuthProvider';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { Navigation } from '@/navigation/Navigation';
+import { StatusBar } from 'react-native';
+
+/**
+TODO:
+ [*] - Auth page + form
+ [] - Customize flow, break, session count
+ [] - reset
+ [] - Day name
+ [] - Play/Pause
+ [] - Skip flow
+ [] - Week/mount statistics ???
+ [*] - Profile
+ [] - Timer
+ [] - Settings
+ [] - Statistics
+ [] - Animation
+*/
+
+const queryClient = new QueryClient();
 
 export default function () {
   return (
-    <View className='bg-[#1E1C2E]'>
-        <Text className='text-white'>Open up App.tsx to start working on your app!</Text>
-        <StatusBar style="auto" />
-      </View>
+    <QueryClientProvider client={queryClient}>
+      <AuthProvider>
+        <SafeAreaProvider>
+          <Navigation />
+        </SafeAreaProvider>
+      </AuthProvider>
+      <StatusBar style="light" />
+    </QueryClientProvider>
   );
 }
