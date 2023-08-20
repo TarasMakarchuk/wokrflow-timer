@@ -13,7 +13,7 @@ export const Layout: FC<PropsWithChildren<{ title?: string }>> = ({ children, ti
       }}
     >
       <View className='flex-1 px-6'>
-        { title && <Text className='text-3xl text-white font-semibold text-center'>{ title }</Text>}
+        { title && <Text className='pt-3 text-3xl text-white font-semibold text-center'>{ title }</Text>}
         <View className='flex-1'>
           { children }
         </View>

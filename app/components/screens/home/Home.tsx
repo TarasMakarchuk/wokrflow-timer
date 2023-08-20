@@ -1,10 +1,14 @@
 import { FC } from 'react';
-import { Text, View } from 'react-native';
+import { Layout } from '@/components/ui/layout/Layout';
+import { Timer } from './timer/Timer';
 
 export const Home: FC = () => {
+
   return (
-    <View>
-      <Text>Home</Text>
-    </View>
+    <Layout title='Timer'>
+    {/* TODO: Editable day name*/}
+      <Timer />
+
+    </Layout>
   );
 };
