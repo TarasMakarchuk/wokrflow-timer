@@ -38,7 +38,6 @@ export const Timer: FC = () => {
         </View>
       </View>
 
-
       <Pressable
         style={{
           shadowColor: AppConstants.primaryColor,
