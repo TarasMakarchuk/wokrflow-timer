@@ -12,6 +12,7 @@ export const Layout: FC<PropsWithChildren<{ title?: string }>> = ({ children, ti
         paddingTop: Platform.OS === 'ios' ? top / 5 : top * 1.6
       }}
     >
+
       <View className='flex-1 px-6'>
         { title && <Text className='pt-3 text-3xl text-white font-semibold text-center'>{ title }</Text>}
         <View className='flex-1'>
