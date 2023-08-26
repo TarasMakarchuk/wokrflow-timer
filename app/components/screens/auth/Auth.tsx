@@ -8,12 +8,11 @@ import { Button } from '@/components/ui/layout/Button';
 import { AuthFields } from '@/components/screens/auth/AuthFields';
 
 export const Auth: FC = () => {
-  const [isReq, setIsReq] = useState<boolean>(false);
-  const {control, reset, handleSubmit} = useForm<IAuthFormData>({
+  const [ isReq, setIsReq ] = useState<boolean>(false);
+  const { control, reset, handleSubmit } = useForm<IAuthFormData>({
     mode: 'onChange',
   });
-
-  const {setUser} = useAuth();
+  const { setUser } = useAuth();
 
   const onSubmit: SubmitHandler<IAuthFormData> = data => {
     setUser({
