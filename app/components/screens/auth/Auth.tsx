@@ -13,6 +13,7 @@ export const Auth: FC = () => {
     mode: 'onChange',
   });
   const { setUser } = useAuth();
+  const isLoading = false;
 
   const onSubmit: SubmitHandler<IAuthFormData> = data => {
     setUser({
@@ -21,8 +22,6 @@ export const Auth: FC = () => {
     });
     reset();
   };
-
-  const isLoading = false;
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
