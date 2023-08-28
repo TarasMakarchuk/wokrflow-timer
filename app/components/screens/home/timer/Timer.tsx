@@ -34,7 +34,6 @@ export const Timer: FC = () => {
           }}
         </CountdownCircleTimer>
         <View>
-
         </View>
       </View>
 
