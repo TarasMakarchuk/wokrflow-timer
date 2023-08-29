@@ -10,7 +10,6 @@ interface IContext {
 }
 
 export const AuthContext = createContext({} as IContext);
-
 let ignore = Splash.preventAutoHideAsync();
 
 export const AuthProvider: FC<PropsWithChildren<unknown>> = ({ children }) => {
