@@ -23,7 +23,7 @@ export const Navigation: FC = () => {
       <NavigationContainer ref={navRef} className='bg-blue-500'>
         <PrivateNavigation />
       </NavigationContainer>
-      {user && currentRoute &&
+      { user && currentRoute &&
         <BottomMenu nav={navRef.navigate} currentRoute={currentRoute} />
       }
     </>
