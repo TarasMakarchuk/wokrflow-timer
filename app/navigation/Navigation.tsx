@@ -6,7 +6,7 @@ import { PrivateNavigation } from '@/navigation/PrivateNavigation';
 
 export const Navigation: FC = () => {
   const { user } = useAuth();
-  const [currentRoute, setCurrentRoute] = useState<string | undefined>(undefined);
+  const [ currentRoute, setCurrentRoute ] = useState<string | undefined>(undefined);
   const navRef = useNavigationContainerRef();
 
   useEffect(() => {
@@ -20,11 +20,11 @@ export const Navigation: FC = () => {
 
   return (
     <>
-      <NavigationContainer ref={navRef} className='bg-blue-500'>
+      <NavigationContainer ref={ navRef } className='bg-blue-500'>
         <PrivateNavigation />
       </NavigationContainer>
       { user && currentRoute &&
-        <BottomMenu nav={navRef.navigate} currentRoute={currentRoute} />
+        <BottomMenu nav={ navRef.navigate } currentRoute={ currentRoute } />
       }
     </>
   );
