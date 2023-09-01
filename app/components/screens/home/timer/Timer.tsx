@@ -2,7 +2,7 @@ import { FC, useEffect, useState } from 'react';
 import cn from 'clsx';
 import { Pressable, Text, View } from 'react-native';
 import { AppConstants } from '@/app.constants';
-import { Foundation } from '@expo/vector-icons';
+import { Entypo, Foundation } from '@expo/vector-icons';
 import { CountdownCircleTimer } from 'react-native-countdown-circle-timer';
 import { StatusEnum } from './timer.interface';
 import { CurrentDate } from '@/components/screens/home/timer/current-date/CurrentDate';
@@ -109,28 +109,59 @@ export const Timer: FC = () => {
         </View>
       </View>
 
-      <Pressable
-        style={{
-          shadowColor: AppConstants.primaryColor,
-          shadowOffset: {
-            width: 0,
-            height: 3,
-          },
-          shadowOpacity: 0.6,
-          shadowRadius: 8,
-          elevation: 20,
+      <View className='flex-row items-center mt-10 justify-center'>
+        <Pressable onPress={() => {
+          if (currentSession !== 1) {
+            setCurrentSession(prev => prev - 1);
+            setKey(prev => prev - 1);
+            setIsPlaying(false);
+          }
         }}
-        onPress={() => setIsPlaying(!isPlaying)}
-        className= {cn('self-center bg-primary w-[65px] h-[65px] items-center justify-center rounded-full mt-10', {
-          'pl-1.5': !isPlaying
-        })}
-      >
-        <Foundation
-          name={ isPlaying ? 'pause' : 'play' }
-          color='white'
-          size={45}
-        />
-      </Pressable>
+                   className='opacity-40'>
+          <Entypo
+            name='chevron-left'
+            size={34}
+            color='white'
+          />
+        </Pressable>
+        <Pressable
+          style={{
+            shadowColor: AppConstants.primaryColor,
+            shadowOffset: {
+              width: 0,
+              height: 3,
+            },
+            shadowOpacity: 0.6,
+            shadowRadius: 8,
+            elevation: 20,
+          }}
+          onPress={() => setIsPlaying(!isPlaying)}
+          className={cn('mx-8 bg-primary w-[65px] h-[65px] items-center justify-center rounded-full', {
+            'pl-1.5': !isPlaying,
+          })}
+        >
+          <Foundation
+            name={isPlaying ? 'pause' : 'play'}
+            color="white"
+            size={45}
+          />
+        </Pressable>
+        <Pressable onPress={
+          () => {
+            if (currentSession !== sessionCount + 1) {
+              setCurrentSession(prev => prev + 1);
+              setKey(prev => prev + 1);
+              setIsPlaying(false);
+            }}
+        }
+                   className='opacity-40'>
+          <Entypo
+            name='chevron-right'
+            size={34}
+            color='white'
+          />
+        </Pressable>
+      </View>
     </View>
   );
 };
