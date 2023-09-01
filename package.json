@@ -21,6 +21,7 @@
     "expo": "^49.0.7",
     "expo-splash-screen": "^0.20.5",
     "expo-status-bar": "~1.6.0",
+    "moment-timezone": "^0.5.43",
     "nativewind": "^2.0.11",
     "or": "^0.2.0",
     "react": "18.2.0",

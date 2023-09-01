@@ -1,4 +1,5 @@
 export enum StatusEnum {
-  REST = 'rest',
-  WORK = 'work',
+  REST = 'REST',
+  WORK = 'HARD WORK',
+  COMPLETED = 'WELL DONE!',
 }
