@@ -7,10 +7,11 @@ import cn from 'clsx';
 
 export const Timer: FC = () => {
   const [isPlaying, setIsPlaying] = useState(false);
+  const circleCount = 7;
 
   return (
     <View className='justify-center flex-1'>
-      <View className='self-center'>
+      <View className='items-center'>
         <CountdownCircleTimer
           isPlaying={isPlaying}
           duration={3121}
@@ -22,9 +23,10 @@ export const Timer: FC = () => {
           strokeWidth={10}
         >
           {({remainingTime}) => {
-            const minutes = Math.floor(remainingTime / 60);
+            let minutes: string | number = Math.floor(remainingTime / 60);
+            minutes = minutes < 10 ? '0' + minutes : minutes;
             let seconds: string | number = remainingTime % 60;
-            seconds = seconds <= 10 ? '0' + seconds : seconds;
+            seconds = seconds < 10 ? '0' + seconds : seconds;
 
             return <Text
               className='text-white text-6xl font-semibold mt-2'
@@ -33,7 +35,15 @@ export const Timer: FC = () => {
             </Text>;
           }}
         </CountdownCircleTimer>
-        <View>
+
+        <View className='mt-14 flex-row items-center justify-center'>
+          { Array.from(Array(circleCount)).map((item, index) => (
+            <View className='flex-row items-center' key={`point ${index}`}>
+              <View className='w-5 h-5 bg-primary rounded-full' />
+              { index + 1 !== circleCount && <View className='w-7 h-0.5 bg-primary' />}
+            </View>
+          ))
+          }
         </View>
       </View>
 
