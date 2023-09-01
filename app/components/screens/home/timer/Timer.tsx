@@ -4,17 +4,24 @@ import { AppConstants } from '@/app.constants';
 import { Foundation } from '@expo/vector-icons';
 import { CountdownCircleTimer } from 'react-native-countdown-circle-timer';
 import cn from 'clsx';
+import { StatusEnum } from './timer.interface';
+
+const flowDuration = 1 * 60;
+const sessionCount = 7;
+const breakDuration = 1 * 60;
+// TODO: Add arrow next and previous
 
 export const Timer: FC = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const circleCount = 7;
+  const [isPlaying, setIsPlaying] = useState<boolean>(false);
+  const [status, setStatus] = useState<StatusEnum>(StatusEnum.REST);
+  const [currentSession, setCurrentSession] = useState<number>(1);
 
   return (
     <View className='justify-center flex-1'>
       <View className='items-center'>
         <CountdownCircleTimer
           isPlaying={isPlaying}
-          duration={3121}
+          duration={flowDuration}
           colors={['#3A3570', '#664FF3']}
           colorsTime={[7, 0]}
           trailColor='#2F2F4C'
@@ -28,19 +35,37 @@ export const Timer: FC = () => {
             let seconds: string | number = remainingTime % 60;
             seconds = seconds < 10 ? '0' + seconds : seconds;
 
-            return <Text
-              className='text-white text-6xl font-semibold mt-2'
-            >
-              {`${minutes}:${seconds}`}
-            </Text>;
+            return (
+              <View className='mt-5 items-center'>
+                <Text className='text-white text-7xl font-semibold'>
+                  {`${minutes}:${seconds}`}
+                </Text>
+                <Text className='text-center text-4xl mt-0.5 text-white'>
+                  { status === StatusEnum.WORK ? 'HARD WORK' : 'REST' }
+                </Text>
+              </View>
+            );
           }}
         </CountdownCircleTimer>
 
         <View className='mt-14 flex-row items-center justify-center'>
-          { Array.from(Array(circleCount)).map((item, index) => (
-            <View className='flex-row items-center' key={`point ${index}`}>
-              <View className='w-5 h-5 bg-primary rounded-full' />
-              { index + 1 !== circleCount && <View className='w-7 h-0.5 bg-primary' />}
+          { Array.from(Array(sessionCount)).map((item, index) => (
+            <View className="flex-row items-center" key={`point ${index}`}>
+              <View
+                className={cn(
+                'w-5 h-5 rounded-full',
+                index + 1 === currentSession
+                  ? 'w-4 h-4 bg-green-500'
+                  : 'bg-[#2C2B3C] ',
+                {
+                  'bg-primary opacity-70':
+                    index + 1 <= currentSession &&
+                    index + 1 !== currentSession,
+                },
+              )} />
+              {index + 1 !== sessionCount && <View className={cn('w-7 h-0.5 bg-[#2C2B3C]', {
+                'bg-primary opacity-70': index + 2 <= currentSession,
+              })} />}
             </View>
           ))
           }
