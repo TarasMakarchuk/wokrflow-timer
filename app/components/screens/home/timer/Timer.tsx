@@ -70,13 +70,28 @@ export const Timer: FC = () => {
             seconds = seconds < 10 ? '0' + seconds : seconds;
 
             return (
-              <View className='mt-5 items-center'>
+              <View className='mt-5 items-center justify-center z-0'>
                 <Text className='text-white text-7xl font-semibold'>
                   {`${minutes}:${seconds}`}
                 </Text>
                 <Text className='text-center text-4xl mt-0.5 text-white'>
                   { status }
                 </Text>
+                <Pressable onPress={() => {
+                  if (currentSession > 0) {
+                    setStatus(StatusEnum.REST);
+                    setKey(0);
+                    setIsPlaying(false);
+                    setCurrentSession(1);
+                  }
+                }}
+                 className='opacity-40 mt-5 z-10'>
+                  <Entypo
+                    name="ccw"
+                    size={30}
+                    color="white"
+                  />
+                </Pressable>
               </View>
             );
           }}
