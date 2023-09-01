@@ -18,7 +18,7 @@ export const CurrentDate: FC = () => {
 
   return (
     <View>
-      <Text className='text-white text-2xl mb-3 color-primary'>{ currentTime }</Text>
+      <Text className='text-white text-2xl mb-5 color-primary'>{ currentTime }</Text>
     </View>
   );
 };
