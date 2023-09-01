@@ -8,9 +8,11 @@ import { StatusEnum } from './timer.interface';
 import { CurrentDate } from '@/components/screens/home/timer/current-date/CurrentDate';
 
 const flowDuration: number = 1 * 10;
-const sessionCount: number = 5;
+const sessionCount: number = 10;
 const breakDuration: number = 1 * 10;
+
 // TODO: Add arrow next and previous
+// TODO: Add rest time
 
 export const Timer: FC = () => {
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
@@ -18,6 +20,7 @@ export const Timer: FC = () => {
   const [currentSession, setCurrentSession] = useState<number>(1);
   const [key, setKey] = useState<number>(0);
   const isAllSessionsCompleted: boolean = currentSession === sessionCount;
+  const isSmallIndicator: boolean = sessionCount > 7;
 
   useEffect(() => {
     if (isPlaying && status === StatusEnum.REST) {
@@ -48,7 +51,7 @@ export const Timer: FC = () => {
             }
 
           }}
-          size={250}
+          size={240}
           strokeWidth={10}
           onUpdate={remainingTime => {
             if(!!remainingTime) setStatus(StatusEnum.WORK)
@@ -79,24 +82,27 @@ export const Timer: FC = () => {
           }}
         </CountdownCircleTimer>
 
-        <View className='mt-14 flex-row items-center justify-center'>
-          { Array.from(Array(sessionCount)).map((item, index) => (
+        <View className="mt-10 flex-row items-center justify-center">
+          {Array.from(Array(sessionCount)).map((item, index) => (
             <View className="flex-row items-center" key={`point ${index}`}>
               <View
-                className={cn(
-                'w-5 h-5 rounded-full',
-                index + 1 === currentSession
-                  ? 'w-4 h-4 bg-green-500'
-                  : 'bg-[#2C2B3C] ',
-                {
-                  'bg-primary opacity-70':
-                    index + 1 <= currentSession &&
-                    index + 1 !== currentSession,
-                },
-              )} />
-              {index + 1 !== sessionCount && <View className={cn('w-7 h-0.5 bg-[#2C2B3C]', {
+                className={cn('rounded-full border-[3px]',
+                  index + 1 === currentSession
+                    ? `bg-green-500 border-[#523FC0] ${isSmallIndicator ? 'w-[17px] h-[17px]' : 'w-[22px] h-[22px]'}`
+                    : `bg-[#2C2B3C] border-transparent ${isSmallIndicator ? 'w-[15px] h-[15px]' : 'w-5 h-5'}`,
+                  {
+                    'bg-primary opacity-70':
+                      index + 1 <= currentSession &&
+                      index + 1 !== currentSession,
+                  },
+                  isSmallIndicator ? 'w-[15px] h-[15px]' : 'w-5 h-5',
+                )}
+              />
+              {index + 1 !== sessionCount && <View className={cn('h-0.5 bg-[#2C2B3C]', {
                 'bg-primary opacity-70': index + 2 <= currentSession,
-              })} />}
+              },
+                isSmallIndicator ? 'w-3' : 'w-5',
+              )} />}
             </View>
           ))
           }
