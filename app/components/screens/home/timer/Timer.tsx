@@ -1,38 +1,69 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
+import cn from 'clsx';
 import { Pressable, Text, View } from 'react-native';
 import { AppConstants } from '@/app.constants';
 import { Foundation } from '@expo/vector-icons';
 import { CountdownCircleTimer } from 'react-native-countdown-circle-timer';
-import cn from 'clsx';
 import { StatusEnum } from './timer.interface';
+import { CurrentDate } from '@/components/screens/home/timer/current-date/CurrentDate';
 
-const flowDuration = 1 * 60;
-const sessionCount = 7;
-const breakDuration = 1 * 60;
+const flowDuration: number = 1 * 10;
+const sessionCount: number = 5;
+const breakDuration: number = 1 * 10;
 // TODO: Add arrow next and previous
 
 export const Timer: FC = () => {
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [status, setStatus] = useState<StatusEnum>(StatusEnum.REST);
   const [currentSession, setCurrentSession] = useState<number>(1);
+  const [key, setKey] = useState<number>(0);
+  const isAllSessionsCompleted: boolean = currentSession === sessionCount;
+
+  useEffect(() => {
+    if (isPlaying && status === StatusEnum.REST) {
+      setKey(prev => prev + 1);
+    }
+  }, [isPlaying]);
 
   return (
     <View className='justify-center flex-1'>
       <View className='items-center'>
+        <CurrentDate />
+        {/*TODO: fix bug color*/}
         <CountdownCircleTimer
+          key={key}
           isPlaying={isPlaying}
           duration={flowDuration}
           colors={['#3A3570', '#664FF3']}
-          colorsTime={[7, 0]}
+          colorsTime={[flowDuration, 0]}
           trailColor='#2F2F4C'
-          onComplete={() => setIsPlaying(false)}
+          onComplete={() => {
+            setIsPlaying(false);
+            setCurrentSession(prev => prev + 1);
+            setStatus(StatusEnum.REST);
+
+            if (isAllSessionsCompleted) {
+              // TODO: add animation completed congratulate
+              setStatus(StatusEnum.COMPLETED);
+            }
+
+          }}
           size={250}
           strokeWidth={10}
+          onUpdate={remainingTime => {
+            if(!!remainingTime) setStatus(StatusEnum.WORK)
+          }}
         >
           {({remainingTime}) => {
             let minutes: string | number = Math.floor(remainingTime / 60);
-            minutes = minutes < 10 ? '0' + minutes : minutes;
             let seconds: string | number = remainingTime % 60;
+
+            if (status === StatusEnum.REST) {
+              minutes = Math.floor(flowDuration / 60);
+              seconds = flowDuration % 60;
+            }
+
+            minutes = minutes < 10 ? '0' + minutes : minutes;
             seconds = seconds < 10 ? '0' + seconds : seconds;
 
             return (
@@ -41,7 +72,7 @@ export const Timer: FC = () => {
                   {`${minutes}:${seconds}`}
                 </Text>
                 <Text className='text-center text-4xl mt-0.5 text-white'>
-                  { status === StatusEnum.WORK ? 'HARD WORK' : 'REST' }
+                  { status }
                 </Text>
               </View>
             );

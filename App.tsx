@@ -7,14 +7,14 @@ import { StatusBar } from 'react-native';
 /**
 TODO:
  [*] - Auth page + form
- [] - Customize flow, break, session count
- [] - reset
- [] - Day name
- [] - Play/Pause
- [] - Skip flow
- [] - Week/mount statistics ???
+ [*] - Timer
+ [*] - Day name
+ [*] - Play/Pause
  [*] - Profile
- [] - Timer
+ [*] - Customize flow, break, session count
+ [] - Skip flow
+ [] - reset
+ [] - Week/mount statistics ???
  [] - Settings
  [] - Statistics
  [] - Animation
