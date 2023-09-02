@@ -5,7 +5,7 @@ import { AppConstants } from '@/app.constants';
 import { Entypo, Foundation } from '@expo/vector-icons';
 import { CountdownCircleTimer } from 'react-native-countdown-circle-timer';
 import { StatusEnum } from './timer.interface';
-import { CurrentDate } from '@/components/screens/home/timer/current-date/CurrentDate';
+import { CurrentDate } from './current-date/CurrentDate';
 
 const flowDuration: number = 1 * 10;
 const sessionCount: number = 10;
