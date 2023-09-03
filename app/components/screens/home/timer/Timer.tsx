@@ -113,7 +113,7 @@ export const Timer: FC = () => {
                   isSmallIndicator ? 'w-[15px] h-[15px]' : 'w-5 h-5',
                 )}
               />
-              {index + 1 !== sessionCount && <View className={cn('h-0.5 bg-[#2C2B3C]', {
+              { index + 1 !== sessionCount && <View className={cn('h-0.5 bg-[#2C2B3C]', {
                 'bg-primary opacity-70': index + 2 <= currentSession,
               },
                 isSmallIndicator ? 'w-3' : 'w-5',
