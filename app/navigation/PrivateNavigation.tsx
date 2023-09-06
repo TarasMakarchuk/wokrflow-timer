@@ -18,9 +18,10 @@ export const PrivateNavigation: FC = () => {
       },
     }}>
       { user ?
-       routes.map((route: IRoute) => (
-        <Stack.Screen key={ route.name } { ...route } />
-      )) : <Stack.Screen name='Auth' component={Auth} /> }
+        routes.map((route: IRoute) => (
+          <Stack.Screen key={route.name} {...route} />
+        )) : <Stack.Screen name="Auth" component={Auth} />
+      }
     </Stack.Navigator>
   );
 };
