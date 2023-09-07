@@ -30,7 +30,7 @@ export const Auth: FC = () => {
           <Text className="text-white text-5xl font-bold text-center mb-5">
             {isReq ? 'Sign up' : 'Sign in'}
           </Text>
-          {isLoading ?
+          { isLoading ?
             <Loader /> :
             <>
               <AuthFields control={control}/>
