@@ -12,7 +12,6 @@ export const CurrentDate: FC = () => {
 
   useEffect(() => {
     const intervalId = setInterval(updateCurrentTime, 1000);
-
     return () => clearInterval(intervalId);
   }, [currentTime]);
 
