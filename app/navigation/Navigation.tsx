@@ -12,7 +12,6 @@ export const Navigation: FC = () => {
   useEffect(() => {
     setCurrentRoute(navRef.getCurrentRoute()?.name);
     const listener = navRef.addListener('state', () => setCurrentRoute(navRef.getCurrentRoute()?.name));
-
     return () => {
       navRef.removeListener('state', listener);
     };
