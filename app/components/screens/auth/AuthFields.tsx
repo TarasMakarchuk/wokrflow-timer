@@ -73,9 +73,11 @@ export const AuthFields: FC<{ control: Control<IAuthFormData> }> = ({control}) =
                 secureTextEntry
               />
             </View>
-            {error && (
-              <Text className="text-red-500 text-lg">{error.message} </Text>
-            )}
+            {
+              error && (
+                <Text className="text-red-500 text-lg">{error.message} </Text>
+              )
+            }
           </>
         )}
       />
