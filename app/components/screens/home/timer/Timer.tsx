@@ -132,7 +132,7 @@ export const Timer: FC = () => {
             setIsPlaying(false);
           }
         }}
-                   className='opacity-40'>
+        className='opacity-40'>
           <Entypo
             name='chevron-left'
             size={34}
