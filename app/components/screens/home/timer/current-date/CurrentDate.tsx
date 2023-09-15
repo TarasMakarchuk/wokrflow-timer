@@ -5,7 +5,6 @@ import { Text, View } from 'react-native';
 export const CurrentDate: FC = () => {
   const datePattern: string = `D MMMM YYYY, HH:mm`;
   const [currentTime, setCurrentTime] = useState<string>(moment().format(datePattern));
-
   const updateCurrentTime = (): void => {
     setCurrentTime(moment().format(datePattern));
   };
