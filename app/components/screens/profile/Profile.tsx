@@ -8,7 +8,11 @@ export const Profile: FC = () => {
 
   return (
     <Layout title='Profile'>
-      <Button onPress={() => setUser(null)}>Logout</Button>
+      <Button
+        onPress={() => setUser(null)}
+      >
+        Logout
+      </Button>
     </Layout>
   );
 };
