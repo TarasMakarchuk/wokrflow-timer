@@ -39,7 +39,10 @@ export const Auth: FC = () => {
               >
                 Let's go!
               </Button>
-              <Pressable onPress={() => setIsReq(!isReq)} className="w-16 self-end">
+              <Pressable
+                onPress={() => setIsReq(!isReq)}
+                className="w-16 self-end"
+              >
                 <Text className="text-opacity-60 text-white text-base mt-3 text-right">
                   {isReq ? 'Login' : 'Register'}
                 </Text>
