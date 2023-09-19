@@ -9,9 +9,7 @@ import { AuthFields } from '@/components/screens/auth/AuthFields';
 
 export const Auth: FC = () => {
   const [ isReq, setIsReq ] = useState<boolean>(false);
-  const { control, reset, handleSubmit } = useForm<IAuthFormData>({
-    mode: 'onChange',
-  });
+  const { control, reset, handleSubmit } = useForm<IAuthFormData>({ mode: 'onChange' });
   const { setUser } = useAuth();
   const isLoading = false;
 
