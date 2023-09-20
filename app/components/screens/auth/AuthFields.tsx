@@ -24,8 +24,10 @@ export const AuthFields: FC<{ control: Control<IAuthFormData> }> = ({control}) =
         }) => (
           <>
             <View className={
-              cn('rounded bg-[#272541] boreder pb-3 pt-2.5 px-4 my-2',
-                !!error ? 'border-red-500' : 'border-transparent')
+              cn(
+                'rounded bg-[#272541] boreder pb-3 pt-2.5 px-4 my-2',
+                !!error ? 'border-red-500' : 'border-transparent'
+              )
             }>
               <TextInput
                 placeholder="Enter email"
