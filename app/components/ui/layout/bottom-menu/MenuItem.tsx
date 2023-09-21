@@ -33,7 +33,7 @@ export const MenuItem: FC<IMenuItemProps> = ({ currentRoute, nav, item }) => {
       <Feather
         name={item.iconName as string}
         size={26}
-        color={isActive ? AppConstants.primaryColor : '#8D8A97'}
+        color={ isActive ? AppConstants.primaryColor : '#8D8A97' }
       />
     </Pressable>
   );
