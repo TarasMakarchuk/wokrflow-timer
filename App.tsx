@@ -12,7 +12,6 @@ TODO:
  [*] - Play/Pause
  [*] - Profile
  [*] - Customize flow, break, session count
-
  [] - Skip flow
  [] - reset
  [] - Week/mount statistics ???
