@@ -11,7 +11,7 @@ interface IMenuItemProps {
 }
 
 export const MenuItem: FC<IMenuItemProps> = ({ currentRoute, nav, item }) => {
-  const isActive = currentRoute === item.path
+  const isActive = currentRoute === item.path;
 
   return (
     <Pressable
