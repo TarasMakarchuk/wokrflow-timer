@@ -22,7 +22,10 @@ export const Auth: FC = () => {
   };
 
   return (
-    <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+    <TouchableWithoutFeedback
+      onPress={Keyboard.dismiss}
+      accessible={false}
+    >
       <View className="items-center justify-center flex-1">
         <View className="w-3/4">
           <Text className="text-white text-5xl font-bold text-center mb-5">
