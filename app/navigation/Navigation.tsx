@@ -25,7 +25,8 @@ export const Navigation: FC = () => {
       >
         <PrivateNavigation />
       </NavigationContainer>
-      { user && currentRoute &&
+      {
+        user && currentRoute &&
         <BottomMenu
           nav={ navRef.navigate }
           currentRoute={ currentRoute }
