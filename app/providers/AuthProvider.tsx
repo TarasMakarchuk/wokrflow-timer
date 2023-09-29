@@ -26,7 +26,6 @@ export const AuthProvider: FC<PropsWithChildren<unknown>> = ({ children }) => {
     };
 
     let ignore = getUserFromStorage();
-
     return () => {
       isMounted = false;
     };
