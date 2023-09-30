@@ -161,15 +161,17 @@ export const Timer: FC = () => {
             size={45}
           />
         </Pressable>
-        <Pressable onPress={
+        <Pressable
+          className='opacity-40'
+          onPress={
           () => {
             if (currentSession !== sessionCount + 1) {
               setCurrentSession(prev => prev + 1);
               setKey(prev => prev + 1);
               setIsPlaying(false);
             }}
-        }
-                   className='opacity-40'>
+           }
+        >
           <Entypo
             name='chevron-right'
             size={34}
