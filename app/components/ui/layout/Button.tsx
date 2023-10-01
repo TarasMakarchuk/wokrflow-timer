@@ -10,7 +10,9 @@ export const Button: FC<PropsWithChildren<IButton>> = ({ children, className, ..
       className={cn('self-center mt-4 bg-primary py-3 px-8 rounded', className)}
       { ...rest }
     >
-      <Text className='font-semibold text-white text-xl'>
+      <Text
+        className='font-semibold text-white text-xl'
+      >
         {children}
       </Text>
     </Pressable>
