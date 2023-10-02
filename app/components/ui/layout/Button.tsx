@@ -13,7 +13,7 @@ export const Button: FC<PropsWithChildren<IButton>> = ({ children, className, ..
       <Text
         className='font-semibold text-white text-xl'
       >
-        {children}
+        { children }
       </Text>
     </Pressable>
   );
