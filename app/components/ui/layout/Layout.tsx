@@ -8,9 +8,7 @@ export const Layout: FC<PropsWithChildren<{ title?: string }>> = ({ children, ti
   return (
     <SafeAreaView
       className='flex-1'
-      style={{
-        paddingTop: Platform.OS === 'ios' ? top / 5 : top * 1.6
-      }}
+      style={{ paddingTop: Platform.OS === 'ios' ? top / 5 : top * 1.6 }}
     >
       <View className='flex-1 px-6'>
         {
