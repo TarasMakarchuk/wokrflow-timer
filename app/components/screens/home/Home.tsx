@@ -5,7 +5,7 @@ import { Timer } from './timer/Timer';
 export const Home: FC = () => {
   return (
     <Layout title='Timer'>
-    {/* TODO: Editable day name*/}
+    {/* TODO: Editable day name */}
       <Timer />
     </Layout>
   );
