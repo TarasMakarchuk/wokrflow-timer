@@ -4,6 +4,9 @@ import { AppConstants } from '@/app.constants';
 
 export const Loader: FC = () => {
   return (
-    <ActivityIndicator color={AppConstants.primaryColor} size='large' />
+    <ActivityIndicator
+      color={AppConstants.primaryColor}
+      size='large'
+    />
   );
 };
