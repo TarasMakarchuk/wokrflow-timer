@@ -34,7 +34,7 @@ export const Auth: FC = () => {
           { isLoading ?
             <Loader /> :
             <>
-              <AuthFields control={control}/>
+              <AuthFields control={control} />
               <Button
                 onPress={handleSubmit(onSubmit)}
               >
