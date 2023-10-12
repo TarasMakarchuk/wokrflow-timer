@@ -13,9 +13,7 @@ export const PrivateNavigation: FC = () => {
   return (
     <Stack.Navigator screenOptions={{
       headerShown: false,
-      contentStyle: {
-        backgroundColor: '#1E1C2E'
-      },
+      contentStyle: { backgroundColor: '#1E1C2E' },
     }}>
       { user ?
         routes.map((route: IRoute) => (
